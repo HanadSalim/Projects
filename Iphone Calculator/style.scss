@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@300&display=swap');
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+  }
+
+  .calculator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: black;
+    padding: 1rem;
+    .screen{
+        width: 100%;
+        text-align: right;
+        background-color: black;
+        font-size: 6rem;
+        color: white;
+        border: none;
+        padding-right: 20px;
+    }
+
+    .keys {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-row-gap: 10px;
+        justify-items: center;
+        button{
+            width: 5rem;
+            height: 5rem;
+            border-radius: 100px;
+            background-color: #333333;
+            color: white;
+            font-size: 2rem;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover{
+            opacity: 0.8;
+        }
+        .light_grey{
+            background-color: #a5a5a5;
+            color: black;
+        }
+        .orange {
+            background-color: #ff9e0a;
+        }
+    }
+
+  }
