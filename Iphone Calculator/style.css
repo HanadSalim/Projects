@@ -34,6 +34,9 @@
       grid-template-columns: repeat(4, 1fr);
   grid-row-gap: 10px;
   place-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .calculator .keys button {
@@ -51,22 +54,13 @@
   opacity: 0.8;
 }
 
-.calculator .keys .light_grey {
+.calculator .keys .function {
   background-color: #a5a5a5;
   color: black;
 }
 
-.calculator .keys .orange {
+.calculator .keys .operator {
   background-color: #ff9e0a;
-}
-
-.calculator .keys .all_clear {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
-  grid-column: 1/2;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  grid-row: 1/2;
 }
 
 .calculator .keys .span_two {
@@ -79,68 +73,5 @@
   width: 93%;
   text-align: left;
   padding-left: 30px;
-}
-
-.calculator .keys .p_m {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
-  grid-column: 2/3;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  grid-row: 1/2;
-}
-
-.calculator .keys .percentage {
-  -ms-grid-column: 3;
-  -ms-grid-column-span: 1;
-  grid-column: 3/4;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  grid-row: 1/2;
-}
-
-.calculator .keys .divide {
-  -ms-grid-column: 4;
-  -ms-grid-column-span: 1;
-  grid-column: 4/5;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  grid-row: 1/2;
-}
-
-.calculator .keys .multiply {
-  -ms-grid-column: 4;
-  -ms-grid-column-span: 1;
-  grid-column: 4/5;
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 1;
-  grid-row: 2/3;
-}
-
-.calculator .keys .subtract {
-  -ms-grid-column: 4;
-  -ms-grid-column-span: 1;
-  grid-column: 4/5;
-  -ms-grid-row: 3;
-  -ms-grid-row-span: 1;
-  grid-row: 3/4;
-}
-
-.calculator .keys .addition {
-  -ms-grid-column: 4;
-  -ms-grid-column-span: 1;
-  grid-column: 4/5;
-  -ms-grid-row: 4;
-  -ms-grid-row-span: 1;
-  grid-row: 4/5;
-}
-
-.calculator .keys .equals {
-  -ms-grid-column: 4;
-  -ms-grid-column-span: 1;
-  grid-column: 4/5;
-  -ms-grid-row: 5;
-  -ms-grid-row-span: 1;
-  grid-row: 5/6;
 }
 /*# sourceMappingURL=style.css.map */
