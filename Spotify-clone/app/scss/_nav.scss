@@ -1,0 +1,124 @@
+nav {
+  background-color: $black;
+  min-height: 52px;
+  padding: 2px 0;
+
+  .nav_logo {
+    cursor: pointer;
+    display: block;
+    margin: auto 0;
+    svg {
+      fill: $white;
+      height: 41.89px;
+      width: 132px;
+    }
+  }
+
+  .nav_items {
+    font-size: 15.4px;
+
+    .nav_links {
+      display: inline-block;
+      padding: 28px 15px;
+      &:last-child {
+        padding-right: 0px;
+      }
+    }
+    a {
+      text-decoration: none;
+      font-weight: 700;
+      color: $white;
+      &:hover {
+        color: $limeGreen;
+      }
+    }
+    .bar {
+      background-color: $white;
+      display: inline-block;
+      margin: 0 15px;
+      height: 16px;
+      width: 1px;
+    }
+  }
+
+  // Mobile menu
+  .nav_mobilemenu {
+    // used > for direct child
+    position: relative;
+    flex-direction: column;
+    cursor: pointer;
+    > span {
+      width: 22px;
+      height: 3px;
+      background-color: $white;
+
+      &:not(:last-child) {
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+
+// Toggle Animation
+.open {
+  > span {
+    position: absolute;
+    right: 0px;
+    top: 22px;
+    transition: all 300ms ease-in-out;
+    &:nth-child(1) {
+      transform: rotate(-45deg);
+      transform-origin: center;
+    }
+    &:nth-child(2) {
+      opacity: 0;
+    }
+    &:nth-child(3) {
+      transform-origin: center;
+      transform: rotate(45deg);
+    }
+  }
+}
+.close {
+  > span {
+    position: absolute;
+    right: 0px;
+    top: 22px;
+    transition: all 300ms ease-in-out;
+    &:nth-child(1) {
+      transform: rotate(45deg);
+      transform-origin: center;
+    }
+    &:nth-child(2) {
+      opacity: 1;
+    }
+    &:nth-child(3) {
+      transform-origin: center;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+// Overlay
+
+.overlay {
+  position: fixed;
+  background: $black;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.addTint {
+  visibility: visible;
+  transition: all 300ms ease-in-out;
+  opacity: 0.5;
+}
+
+.removeTint {
+  transition: all 300ms ease-in-out;
+  opacity: 0;
+}
