@@ -43,18 +43,21 @@ nav {
 
   // Mobile menu
   .nav_mobilemenu {
-    // used > for direct child
-    position: relative;
+    display: flex;
+    justify-content: space-between;
     flex-direction: column;
     cursor: pointer;
+    padding: 2px 0;
+    width: 25px;
+    height: 25px;
+    margin: auto 0;
+    transform: rotate(0deg);
+    // used > for direct child
     > span {
-      width: 22px;
-      height: 3px;
+      width: 100%;
       background-color: $white;
-
-      &:not(:last-child) {
-        margin-bottom: 5px;
-      }
+      border: 2px solid white;
+      border-radius: 10px;
     }
   }
 }
@@ -63,39 +66,49 @@ nav {
 .open {
   > span {
     position: absolute;
-    right: 0px;
-    top: 22px;
     transition: all 300ms ease-in-out;
     &:nth-child(1) {
+      top: 0;
+      width: 115%;
+      right: 2px;
+      transform-origin: right center;
       transform: rotate(-45deg);
-      transform-origin: center;
     }
     &:nth-child(2) {
       opacity: 0;
+      width: 0%;
     }
     &:nth-child(3) {
-      transform-origin: center;
+      top: 20px;
+      right: 2px;
+      transform-origin: right center;
       transform: rotate(45deg);
+
+      width: 115%;
     }
   }
 }
 .close {
   > span {
     position: absolute;
-    right: 0px;
-    top: 22px;
     transition: all 300ms ease-in-out;
     &:nth-child(1) {
+      top: 0;
+      width: 115%;
+      right: 2px;
+      transform-origin: right center;
       transform: rotate(45deg);
-      transform-origin: center;
     }
     &:nth-child(2) {
       opacity: 1;
     }
     &:nth-child(3) {
-      transform-origin: center;
+      top: 20px;
+      right: 2px;
+      transform-origin: right center;
       transform: rotate(-45deg);
     }
+    opacity: 0;
   }
 }
 
@@ -115,7 +128,7 @@ nav {
 .addTint {
   visibility: visible;
   transition: all 300ms ease-in-out;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .removeTint {
