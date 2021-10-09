@@ -1,8 +1,6 @@
 nav {
   background-color: $black;
   min-height: 52px;
-  padding: 2px 0;
-
   .nav_logo {
     cursor: pointer;
     display: block;
@@ -43,7 +41,6 @@ nav {
 
   // Mobile menu
   .nav_mobilemenu {
-    display: flex;
     justify-content: space-between;
     flex-direction: column;
     cursor: pointer;
@@ -113,7 +110,6 @@ nav {
 }
 
 // Overlay
-
 .overlay {
   position: fixed;
   background: $black;
