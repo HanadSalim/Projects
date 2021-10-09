@@ -1,14 +1,14 @@
 nav {
   background-color: $black;
-  min-height: 52px;
+  max-height: 80px;
+  padding: 2px 0;
   .nav_logo {
     cursor: pointer;
-    display: block;
+    display: inline-block;
     margin: auto 0;
     svg {
       fill: $white;
-      height: 41.89px;
-      width: 132px;
+      height: 41px;
     }
   }
 
@@ -39,9 +39,8 @@ nav {
     }
   }
 
-  // Mobile menu
-  .nav_mobilemenu {
-    justify-content: space-between;
+  // Hamburger toggle menu
+  .nav_toggle {
     flex-direction: column;
     cursor: pointer;
     padding: 2px 0;
@@ -49,14 +48,35 @@ nav {
     height: 25px;
     margin: auto 0;
     transform: rotate(0deg);
+    z-index: 4;
     // used > for direct child
     > span {
       width: 100%;
       background-color: $white;
-      border: 2px solid white;
-      border-radius: 10px;
+      border: 1.5px solid white;
     }
   }
+}
+
+// Overlay
+.overlay {
+  position: fixed;
+  background: $black;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+.addTint {
+  visibility: visible;
+  transition: all 300ms ease-in-out;
+  opacity: 0.7;
+}
+.removeTint {
+  transition: all 300ms ease-in-out;
+  opacity: 0;
 }
 
 // Toggle Animation
@@ -108,26 +128,75 @@ nav {
     opacity: 0;
   }
 }
-
-// Overlay
-.overlay {
-  position: fixed;
-  background: $black;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0;
+.nav_mobile {
   visibility: hidden;
-}
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  max-width: 446px;
+  padding: 38px;
+  background-color: $black;
+  right: 0;
+  flex-direction: column;
+  z-index: 5;
+  @media (max-width: 443px) {
+    width: 100vw;
+  }
+  .menu {
+    display: flex;
 
-.addTint {
-  visibility: visible;
+    flex-direction: column;
+    width: 400px;
+    a {
+      color: $white;
+      padding: 0 0 25px;
+      display: block;
+      line-height: 1;
+      font-size: 27px;
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(3) {
+        font-weight: 700;
+        font-size: 36px;
+      }
+      &:hover {
+        color: $limeGreen;
+      }
+    }
+    .bar {
+      margin: 18px 0 40px;
+      width: 20px;
+      height: 2px;
+      background-color: $white;
+    }
+  }
+  .logo {
+    svg {
+      fill: $white;
+      height: 29px;
+    }
+  }
+}
+//Fade in and out mobile menu
+.addFade {
   transition: all 300ms ease-in-out;
-  opacity: 0.7;
+  visibility: visible;
+  opacity: 1;
+  z-index: 2;
 }
-
-.removeTint {
+.removeFade {
   transition: all 300ms ease-in-out;
   opacity: 0;
+}
+@media (max-width: 63.9375em) {
+  nav {
+    padding: 4px 0;
+  }
+  .c {
+    max-width: 750px;
+  }
+  .nav_logo svg {
+    padding-top: 4px;
+  } //Tweaking spotify logo
 }

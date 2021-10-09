@@ -1,37 +1,35 @@
-const menu = document.getElementById("#Hamburger");
+const toggleMenu = document.getElementById("#Hamburger");
 const overlay = document.getElementById("#Overlay");
+const mobileMenu=document.getElementById('#mobileMenu');
 const body = document.querySelector('body');
-// const mobileMenu=document.getElementById('fade');
 var click = false;
 
-menu.addEventListener('click', ()=>{
+toggleMenu.addEventListener('click', ()=>{
     click?close():open();
 });
 
 // Adds animation for open, overLay and mobile menu. Also stops scroll
 function open(){
-    menu.classList.add('open');
-    overlay.classList.add('addTint');
+    toggleMenu.classList.add('open');
+    overlay.classList.add('addTint'); 
+    mobileMenu.classList.add('addFade');
     body.classList.add('noscroll');
-    // mobileMenu.classList.add('fade-in');
-
-    
     click=true;
 }
 
 function close(){
-    menu.classList.remove('open');  
-    menu.classList.add('close');
+    toggleMenu.classList.remove('open');  
+    toggleMenu.classList.add('close');
     overlay.classList.add('removeTint');
-    // mobileMenu.classList.add('fade-out');
+    mobileMenu.classList.add('removeFade');
     setTimeout(()=>{
     // After animation is complete remove all changes
         overlay.classList.remove('addTint');
-        menu.classList.remove('close');
+        toggleMenu.classList.remove('close');
         overlay.classList.remove('removeTint');
         body.classList.remove('noscroll');
-        // mobileMenu.classList.remove('fade-in');
-        // mobileMenu.classList.remove('fade-out');
+        mobileMenu.classList.remove('addFade');
+        mobileMenu.classList.remove('removeFade');
     },300)
 
 
