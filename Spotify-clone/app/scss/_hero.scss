@@ -1,7 +1,75 @@
 .hero {
   height: 100vh;
   background-color: rgb(41, 65, 171);
-  // background-image: url(https://www-growth.scdn.co/static/home/bursts-mobile.svg);
-  // background-position: center top 30%;
-  // background-repeat: no-repeat;
+  background-image: url(../images/burst-mobile.svg);
+  background-position: center top 30%;
+  background-repeat: no-repeat;
+  width: 100%;
+  &_component {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    height: 100vh;
+    h1 {
+      width: 312px;
+      padding-bottom: 16px;
+      font-size: 48px;
+      font-weight: 800;
+      color: $limeGreen;
+      line-height: 56px;
+    }
+    p {
+      width: 312px;
+      padding: 0px 0px 1em;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0px;
+      color: $limeGreen;
+    }
+    a {
+      border-radius: 500px;
+      font-size: 13px;
+      padding: 14px 32px;
+      background-color: $limeGreen;
+      color: rgb(41, 65, 171);
+      font-weight: bold;
+      &:hover {
+        padding: 16px 34px;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media (min-width: 754px) {
+  .hero {
+    background-image: url(../images/bursts-tablet.svg);
+    background-size: 153%;
+    background-position: right 40% center;
+    h1 {
+      display: block;
+      width: 700px;
+      font-size: 104px;
+      line-height: 104px;
+      padding-bottom: 24px;
+    }
+    p {
+      width: 400px;
+    }
+  }
+}
+@media (min-width: 1200px) {
+  .hero {
+    background-image: url(../images/bursts.svg);
+    background-size: 175%;
+    background-position: 46% 4%;
+    h1 {
+      display: block;
+      width: 1000px;
+      font-size: 154px;
+      line-height: 134px;
+      padding-bottom: 40px;
+    }
+  }
 }
