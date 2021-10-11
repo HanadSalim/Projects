@@ -248,7 +248,7 @@ nav .nav_toggle > span {
   z-index: 5;
 }
 
-@media (max-width: 443px) {
+@media (min-width: 443px) {
   .nav_mobile {
     width: 100vw;
   }
@@ -263,6 +263,13 @@ nav .nav_toggle > span {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 400px;
+}
+
+@media (max-width: 400px) {
+  .nav_mobile .menu {
+    width: 100vw;
+    height: 100vh;
+  }
 }
 
 .nav_mobile .menu a {
@@ -324,8 +331,9 @@ nav .nav_toggle > span {
   height: 100vh;
   background-color: #2941ab;
   background-image: url(../images/burst-mobile.svg);
-  background-position: center top 30%;
+  background-position: center top 40%;
   background-repeat: no-repeat;
+  background-size: 120%;
   width: 100%;
 }
 
@@ -348,6 +356,7 @@ nav .nav_toggle > span {
   font-weight: 800;
   color: #1ed760;
   line-height: 56px;
+  letter-spacing: -3px;
 }
 
 .hero_component p {
@@ -386,6 +395,7 @@ nav .nav_toggle > span {
     font-size: 104px;
     line-height: 104px;
     padding-bottom: 24px;
+    letter-spacing: -8px;
   }
   .hero p {
     width: 400px;
@@ -404,6 +414,8 @@ nav .nav_toggle > span {
     font-size: 154px;
     line-height: 134px;
     padding-bottom: 40px;
+    letter-spacing: -10px;
+    margin-bottom: 40px;
   }
 }
 /*# sourceMappingURL=style.css.map */
