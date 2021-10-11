@@ -100,7 +100,6 @@ nav {
       right: 2px;
       transform-origin: right center;
       transform: rotate(45deg);
-
       width: 115%;
     }
   }
@@ -134,7 +133,7 @@ nav {
   position: absolute;
   top: 0;
   height: 100vh;
-  max-width: 446px;
+  max-width: 400px;
   padding: 38px;
   background-color: $black;
   right: 0;
