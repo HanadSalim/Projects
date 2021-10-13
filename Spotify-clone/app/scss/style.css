@@ -237,7 +237,6 @@ nav .nav_toggle > span {
   position: absolute;
   top: 0;
   height: 100vh;
-  max-width: 400px;
   padding: 38px;
   background-color: black;
   right: 0;
@@ -246,11 +245,18 @@ nav .nav_toggle > span {
       -ms-flex-direction: column;
           flex-direction: column;
   z-index: 5;
+  width: 400;
 }
 
-@media (min-width: 443px) {
+@media (max-width: 399px) {
   .nav_mobile {
     width: 100vw;
+  }
+}
+
+@media (min-width: 400px) {
+  .nav_mobile {
+    width: 400px;
   }
 }
 
@@ -262,14 +268,6 @@ nav .nav_toggle > span {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 400px;
-}
-
-@media (max-width: 400px) {
-  .nav_mobile .menu {
-    width: 100vw;
-    height: 100vh;
-  }
 }
 
 .nav_mobile .menu a {
@@ -334,6 +332,7 @@ nav .nav_toggle > span {
   background-position: center top 40%;
   background-repeat: no-repeat;
   background-size: 200%;
+  width: 100vw;
 }
 
 .hero_component {
@@ -378,8 +377,8 @@ nav .nav_toggle > span {
 }
 
 .hero_component a:hover {
-  padding: 16px 34px;
-  font-size: 16px;
+  opacity: 0.8;
+  color: black;
 }
 
 @media (min-width: 754px) {

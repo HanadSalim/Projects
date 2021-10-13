@@ -5,6 +5,7 @@
   background-position: center top 40%;
   background-repeat: no-repeat;
   background-size: 200%;
+  width: 100vw;
   &_component {
     flex-direction: column;
     text-align: center;
@@ -36,8 +37,8 @@
       color: rgb(41, 65, 171);
       font-weight: bold;
       &:hover {
-        padding: 16px 34px;
-        font-size: 16px;
+        opacity: 0.8;
+        color: $black;
       }
     }
   }
