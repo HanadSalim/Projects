@@ -10,7 +10,7 @@ Create a simple todo application which allows user to enter and cross out tasks
 
 ### Screenshot
 
-![](./app.jpg?raw=true)
+![](https://github.com/HanadSalim/Projects/blob/main/todo/app.JPG)
 
 ### Built with
 
