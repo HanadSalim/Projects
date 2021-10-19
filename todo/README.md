@@ -19,8 +19,6 @@ Create a simple todo application which allows user to enter and cross out tasks
 - Flexbox
 - [React](https://reactjs.org/) - JS library UseState
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
-
 ### What I learned
 
 I have learnt how to use the useState function in react
