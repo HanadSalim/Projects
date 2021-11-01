@@ -1,0 +1,10 @@
+.sidebarChat {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #f6f6f6;
+}
+
+.sidebarChat__avatar {
+  margin-right: 10px;
+}
