@@ -1,9 +1,18 @@
-import {Search, AttachFile, MoreVert} from '@mui/icons-material'
+import {Search, AttachFile, MoreVert, InsertEmoticon, Mic, FireExtinguisher} from '@mui/icons-material'
 import { Avatar, IconButton } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import "./Chat.css"
 
 function Chat() {
+    // when you type in the input Field store in state
+    const [input,setInput]=useState('')
+    // click enter to display message
+    const sendMessage = (e) =>{
+        e.preventDefault();
+        console.log(input)
+        setInput('')
+    }
+
     return (
         <div className="chat">
             <div className="chat__header">
@@ -31,7 +40,14 @@ function Chat() {
                     </p>
                     
                 </div>
-                <div className="chat__footer"></div>
+                <div className="chat__footer">
+                    <InsertEmoticon/>
+                    <form>
+                        <input value={input} onChange={(e)=>setInput(e.target.value)}type="text" placeholder="Type a message"></input>
+                        <button onClick={sendMessage}type="submit">Send message</button>
+                    </form>
+                    <Mic/>
+                </div>
         </div>
     )
 }

@@ -46,7 +46,7 @@
   outline: none;
 }
 
-.sidebar__searchContainer > .css-i4bv87-MuiSvgIcon-root {
+.sidebar__searchContainer > .MuiSvgIcon-root {
   color: grey;
   padding: 10px;
 }
