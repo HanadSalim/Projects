@@ -23,8 +23,14 @@ function Chat() {
                         <MoreVert />
                     </IconButton>
                 </div>
-            </div>
-                <div className="chat__body"></div>
+            </div>  
+                <div className="chat__body">
+                    <p className={!true?"chat__message": "chat__message chat__sender"}>
+                        <span className="chat__name">Hanad Salim</span>hiii
+                    <span className="chat__time">4:15pm</span>
+                    </p>
+                    
+                </div>
                 <div className="chat__footer"></div>
         </div>
     )

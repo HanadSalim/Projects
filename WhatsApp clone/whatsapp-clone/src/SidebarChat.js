@@ -1,16 +1,11 @@
 import { Avatar } from '@mui/material'
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import './SidebarChat.css'
 import { AvatarGenerator } from 'random-avatar-generator';
 
 function SidebarChat({addChat}) {
-    
-    const [state, setState]= useState('');
+    const generator = new AvatarGenerator();
 
-    useEffect(() => {
-       var generator = new AvatarGenerator();
-       setState(generator.generateRandomAvatar())
-    }, [state])
 
     const createChat = () => {
         const roomName = prompt("Enter new room name");
@@ -23,7 +18,7 @@ function SidebarChat({addChat}) {
     return !addChat ? (
         <div className="sidebarChat">
             <div className="sidebarChat__avatar">
-                <Avatar src={state} />
+                <Avatar src={generator.generateRandomAvatar()} />
             </div>
             <div className="sidebarChat__info">
                <h2>Room Name</h2>
