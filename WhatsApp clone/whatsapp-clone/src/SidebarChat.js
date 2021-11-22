@@ -3,7 +3,7 @@ import React from 'react'
 import './SidebarChat.css'
 import { AvatarGenerator } from 'random-avatar-generator';
 
-function SidebarChat({addChat}) {
+function SidebarChat({id,name,addChat}) {
     const generator = new AvatarGenerator();
 
 
@@ -21,7 +21,7 @@ function SidebarChat({addChat}) {
                 <Avatar src={generator.generateRandomAvatar()} />
             </div>
             <div className="sidebarChat__info">
-               <h2>Room Name</h2>
+               <h2>{name}</h2>
                <p>Last message.....</p> 
             </div>
         </div>

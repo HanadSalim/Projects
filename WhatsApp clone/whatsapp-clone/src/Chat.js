@@ -1,4 +1,4 @@
-import {Search, AttachFile, MoreVert, InsertEmoticon, Mic, FireExtinguisher} from '@mui/icons-material'
+import {Search, AttachFile, MoreVert, InsertEmoticon, Mic} from '@mui/icons-material'
 import { Avatar, IconButton } from '@mui/material'
 import React, { useState } from 'react'
 import "./Chat.css"
