@@ -5,19 +5,39 @@ import ChatIcon from '@mui/icons-material/Chat';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import SearchIcon from '@mui/icons-material/Search';
 import SidebarChat from './SidebarChat';
-
+import { AvatarGenerator } from 'random-avatar-generator';
 import './Sidebar.css';
 import db from "./firebase";
-import {onSnapshot, collection} from "firebase/firestore";
+import {onSnapshot, collection, addDoc} from "firebase/firestore";
 
 function Sidebar() {
 const [room, setroom] = useState([])
+const [chat, setchat] = useState("")
+
+
 useEffect(
     () => 
         onSnapshot(collection(db, "rooms"),(snapshot)=>
         setroom(snapshot.docs.map((doc)=>({id: doc.id, ...doc.data()})))
     )
     , []);
+
+    function getInputValue(event){
+    setchat(event.target.value)
+}
+
+const createChat = (event) => {
+   if(chat!==""){
+    event.preventDefault()
+    const generator = new AvatarGenerator();
+    addDoc(collection(db, "rooms"), {
+        name: chat,
+        history: [],
+        profile:generator.generateRandomAvatar()
+      })
+      setchat("")
+   }
+}
 
     return (
         <div className="sidebar">
@@ -40,14 +60,15 @@ useEffect(
           <div className="sidebar__search">
               <div className="sidebar__searchContainer">
                 <SearchIcon />
-                <input placeholder="Search or start new chat" type="text"/>
+                <form onSubmit={createChat}>
+                <input  placeholder="Search or start new chat" onChange={getInputValue} value={chat}/>
+                </form>
               </div>
           </div>
             </div>
           <div className="sidebar__chats">
-              <SidebarChat addChat/>
               {room.map(room=> (
-                  <SidebarChat key={room.id} id={room.id} name={room.name}/>
+                  <SidebarChat key={room.id} id={room.id} name={room.name} profile={room.profile}/>
               ))}
           </div>
         </div>
