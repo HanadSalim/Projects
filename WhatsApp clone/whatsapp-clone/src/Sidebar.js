@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Avatar, IconButton } from '@mui/material';
-import DonutLargeIcon from '@mui/icons-material/DonutLarge';
 import ChatIcon from '@mui/icons-material/Chat';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import SearchIcon from '@mui/icons-material/Search';
@@ -45,9 +44,6 @@ const createChat = (event) => {
                 <Avatar />
                 <div className="sidebar__headerRight">
                     <IconButton>
-                        <DonutLargeIcon />
-                    </IconButton>
-                    <IconButton>
                         <ChatIcon />
                     </IconButton>
                     <IconButton>
@@ -61,7 +57,7 @@ const createChat = (event) => {
               <div className="sidebar__searchContainer">
                 <SearchIcon />
                 <form onSubmit={createChat}>
-                <input  placeholder="Search or start new chat" onChange={getInputValue} value={chat}/>
+                <input placeholder="Search or start new chat" onChange={getInputValue} value={chat}/>
                 </form>
               </div>
           </div>

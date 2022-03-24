@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-between;
   border-right: 1px solid lightgrey;
-  padding: 20px;
+  padding: 17px 20px;
 }
 
 .sidebar__headerRight {
@@ -51,3 +51,8 @@
   padding: 10px;
 }
 
+/* HIDE input outline */
+
+input,input:focus {
+  border: none;
+}

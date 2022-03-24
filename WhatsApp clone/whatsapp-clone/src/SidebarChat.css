@@ -1,14 +1,32 @@
 .sidebarChat {
   display: flex;
   align-items: center;
-  padding: 15px;
-  border-bottom: 1px solid #f6f6f6;
+  padding: 10px;
+  /* border-bottom: 1px solid #c50000; */
+  background-color: rgb(256, 256, 256);
 }
+/*  
+.border_b {
+  border-bottom: 2px solid red;
+  width: 100%;
+  position: relative; 
+} */
 
 .sidebarChat:hover {
-  background-color: #ebebeb;
+  background-color: #d6d3d3;
 }
 
 .sidebarChat__avatar {
   margin-right: 10px;
 }
+
+h2 {
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.sidebarChat__avatar > .MuiAvatar-root, .MuiAvatar-circular, .css-1wlk0hk-MuiAvatar-root{
+  height: 50px;
+  width: 50px;
+}
+

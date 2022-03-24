@@ -87,3 +87,7 @@
   color: gray;
   padding: 10px;
 }
+
+input {
+  padding-left: 10px;
+}

@@ -1,4 +1,4 @@
-import {Search, AttachFile, MoreVert, InsertEmoticon, Mic} from '@mui/icons-material'
+import {AttachFile, MoreVert, InsertEmoticon, Mic} from '@mui/icons-material'
 import { Avatar, IconButton } from '@mui/material'
 import React, { useState } from 'react'
 import "./Chat.css"
@@ -18,13 +18,10 @@ function Chat() {
             <div className="chat__header">
                 <Avatar />
                 <div className="chat__headerInfo">
-                    <h3>Room name</h3>
+                    <h3>Click a chat</h3>
                     <p>Last seen.....</p>
                 </div>
                 <div className="chat__headerRight">
-                    <IconButton>
-                        <Search/>
-                    </IconButton>
                     <IconButton>
                         <AttachFile />
                     </IconButton>
