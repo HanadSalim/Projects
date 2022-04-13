@@ -8,7 +8,7 @@ const RoomProvider = ({ children }) => {
   const [state, setState] = useState({
     roomName: "Click a chat",
     profile:"",
-    chatHistory:{}
+    roomId:""
   })
  
     return <Provider value={[state, setState]}>{children}</Provider>

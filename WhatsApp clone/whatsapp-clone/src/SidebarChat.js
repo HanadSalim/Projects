@@ -7,20 +7,22 @@ function SidebarChat({id,name,profile}) {
 
     const [context, setContext] = useContext(RoomContext)
     function logIt(){
-        setContext({roomName:name,profile:profile})
+        setContext({roomName:name,profile:profile,roomId:id})
     }
     return (
-        <div className="border_b">
-            <div className="sidebarChat "onClick={logIt} >
-                <div className="sidebarChat__avatar">
-                    <Avatar src={profile} />
-                </div>
-                <div className="sidebarChat__info">
-                <h2>{name}</h2>
-                <p>{id}</p> 
-                </div>
+ 
+        <div className="sidebarChat "onClick={logIt} >
+            <div className="sidebarChat__avatar">
+                <Avatar src={profile} />
             </div>
+            <div className="sidebarChat__info">
+            <span>{name}</span>
+            <p>{id}</p> 
+             <div className='border'></div></div>
+           
+            
         </div>
+       
     )
 }
 

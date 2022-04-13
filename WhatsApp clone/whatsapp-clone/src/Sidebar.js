@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Avatar, IconButton } from '@mui/material';
-import ChatIcon from '@mui/icons-material/Chat';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import SearchIcon from '@mui/icons-material/Search';
+import {Avatar, IconButton } from '@mui/material';
 import SidebarChat from './SidebarChat';
 import { AvatarGenerator } from 'random-avatar-generator';
 import './Sidebar.css';
 import db from "./firebase";
 import {onSnapshot, collection, addDoc} from "firebase/firestore";
+import { DonutLargeOutlined, MoreVertOutlined, SearchOutlined, Chat } from '@mui/icons-material';
 
 function Sidebar() {
 const [room, setroom] = useState([])
@@ -43,11 +41,14 @@ const createChat = (event) => {
             <div className="sidebar__header"> 
                 <Avatar />
                 <div className="sidebar__headerRight">
-                    <IconButton>
-                        <ChatIcon />
+                <IconButton>
+                        <DonutLargeOutlined />
                     </IconButton>
                     <IconButton>
-                        <MoreVertIcon />
+                        <Chat />
+                    </IconButton>
+                    <IconButton>
+                        <MoreVertOutlined />
                     </IconButton>
                 </div>
             </div> 
@@ -55,18 +56,21 @@ const createChat = (event) => {
 
           <div className="sidebar__search">
               <div className="sidebar__searchContainer">
-                <SearchIcon />
+                <SearchOutlined />
                 <form onSubmit={createChat}>
                 <input placeholder="Search or start new chat" onChange={getInputValue} value={chat}/>
                 </form>
               </div>
           </div>
             </div>
+            <div className="sidebar__chats__wrap">
+                
           <div className="sidebar__chats">
               {room.map(room=> (
                   <SidebarChat key={room.id} id={room.id} name={room.name} profile={room.profile}/>
-              ))}
+                  ))}
           </div>
+            </div>
         </div>
     )
 }

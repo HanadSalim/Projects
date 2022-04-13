@@ -5,15 +5,18 @@
   /* border-bottom: 1px solid #c50000; */
   background-color: rgb(256, 256, 256);
 }
-/*  
-.border_b {
-  border-bottom: 2px solid red;
-  width: 100%;
-  position: relative; 
-} */
+ 
+.border {
+  height: 1px;
+  width: 245px;
+  position: absolute;
+  background-color: rgb(240,242,245);
+  margin-top: 13px;
+  
+}
 
 .sidebarChat:hover {
-  background-color: #d6d3d3;
+  background-color: rgb(240,242,245);
 }
 
 .sidebarChat__avatar {

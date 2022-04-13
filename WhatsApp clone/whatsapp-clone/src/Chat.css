@@ -2,26 +2,36 @@
   flex: 0.7;
   display: flex;
   flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .chat__header {
   display: flex;
-  padding: 16.5px;
+  padding: 10px 16px;
   align-items: center;
   border-bottom: 1px solid lightgrey;
+  background-color: rgb(240,242,245);
+}
+
+svg > .profile__pic{
+  height: 40px;
+  width: 40px;
 }
 
 .chat__headerInfo {
   flex: 1;
-  padding-left: 20px;
+  padding-left: 15px;
+  height: 40px;
 }
 
-.chat__headerInfo > h3 {
-  font-weight: 500;
+.chat__headerInfo > h4 {
+  font-weight:400;
+  font-size: 16px;
 }
 
 .chat__headerInfo > p {
   color: grey;
+  font-size: 13px;
 }
 
 .chat__body {
@@ -33,11 +43,18 @@
 
 .chat__message {
   position: relative;
-  font-size: 16px;
-  padding: 10px;
+  padding: 10px 5px;
   background-color: white;
   border-radius: 10px;
   width: fit-content;
+  margin-bottom: 10px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.chat__text{
+  word-wrap: break-word;
+  max-width: 250px;
 }
 
 .chat__sender {
@@ -47,35 +64,47 @@
 
 .chat__name {
   position: absolute;
-  top: -15px;
+  top: 0px;
+  left: 5px;
+  /* margin-bottom: 10px; */
   font-size: xx-small;
   font-weight: 900;
+  color:darksalmon;
+  
 }
 
 .chat__time {
+  position:absolute;
   font-size: xx-small;
   font-weight: bold;
-  margin-left: 10px;
+  right: 0;
+  bottom: 0;
+  color: gray;
+  padding: 5px;
 }
 
 .chat__footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
+  padding: 5px 17px 5px 10px;
   border-top: 1px solid lightgrey;
 }
 
 .chat__footer > form {
   flex: 1;
   display: flex;
+  background-color: white;
+  border-radius: 8px;
+  margin: 5px 10px;
+  padding: 9px 12px 11px;
 }
 
 .chat__footer > form > input {
   flex: 1;
-  padding: 10px;
-  border-radius: 30px;
   border-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 /* To keep button functionality but not dsiplay */
@@ -83,11 +112,6 @@
   display: none;
 }
 
-.chat__footer > .MuiSvgIcon-root {
-  color: gray;
-  padding: 10px;
-}
 
-input {
-  padding-left: 10px;
-}
+
+
