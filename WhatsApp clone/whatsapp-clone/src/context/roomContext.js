@@ -1,13 +1,20 @@
-import { createContext } from "react";
+import React, {createContext, useState } from "react";
 
-const RoomContext = createContext()
+export const  RoomContext = createContext(null)
+
+const {Provider} = RoomContext
 
 const RoomProvider = ({ children }) => {
-  const [room, setroom] = useState([])
-  const [chat, setchat] = useState("")
-    return (
-        <RoomContext.Provider value={{ room, chat}}>
-          {children}
-        </RoomContext.Provider>
-      );
+  const [state, setState] = useState({
+    roomName: "Click a chat",
+    profile:"",
+    chatHistory:{}
+  })
+ 
+    return <Provider value={[state, setState]}>{children}</Provider>
     };
+
+    RoomProvider.context = RoomContext
+    export default RoomProvider
+
+    

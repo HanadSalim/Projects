@@ -1,6 +1,7 @@
 import {AttachFile, MoreVert, InsertEmoticon, Mic} from '@mui/icons-material'
 import { Avatar, IconButton } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { RoomContext } from './context/roomContext'
 import "./Chat.css"
 
 function Chat() {
@@ -12,15 +13,22 @@ function Chat() {
         console.log(input)
         setInput('')
     }
+    
+    // Using Context api to update the chat title, profile and ****CHAT NEXT****
+    const [context] = useContext(RoomContext)
+    const {roomName,profile} = context
+    
 
     return (
         <div className="chat">
             <div className="chat__header">
-                <Avatar />
+                <Avatar src={profile}/>
+               
                 <div className="chat__headerInfo">
-                    <h3>Click a chat</h3>
+                    <h3>{roomName}</h3>
                     <p>Last seen.....</p>
                 </div>
+                
                 <div className="chat__headerRight">
                     <IconButton>
                         <AttachFile />
