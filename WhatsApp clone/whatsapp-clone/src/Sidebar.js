@@ -29,7 +29,7 @@ const createChat = (event) => {
     const generator = new AvatarGenerator();
     addDoc(collection(db, "rooms"), {
         name: chat,
-        history: [],
+        history: [{}],
         profile:generator.generateRandomAvatar()
       })
       setchat("")

@@ -4,7 +4,7 @@ import './SidebarChat.css'
 import { RoomContext } from './context/roomContext'
  
 function SidebarChat({id,name,profile}) {
-
+    // eslint-disable-next-line
     const [context, setContext] = useContext(RoomContext)
     function logIt(){
         setContext({roomName:name,profile:profile,roomId:id})
