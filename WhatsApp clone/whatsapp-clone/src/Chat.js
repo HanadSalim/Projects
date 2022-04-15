@@ -3,22 +3,44 @@ import {Avatar, IconButton } from '@mui/material'
 import React, { useContext, useState } from 'react'
 import { RoomContext } from './context/roomContext'
 import Message from './Message'
-
+import db from "./firebase";
+import { doc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
 import "./Chat.css"
 
 function Chat() {
     // when you type in the input Field store in state
     const [input,setInput]=useState('')
+    const [context, setContext] = useContext(RoomContext)
+    const {roomName,profile,roomId,message} = context 
+    // const x = db.collection('rooms').where(firebase.firestore.FieldPath.documentId(), '==', roomId).get()
+    // const roomref = doc(db, "rooms", roomId)
+
+    
+
     // click enter to display message
-    const sendMessage = (e) =>{
-        e.preventDefault();
-        console.log(input)
+    const sendMessage = async (e) =>{
+        if(roomId!=""){
+            var today = new Date();
+            var time = today.getHours() + ":" + today.getMinutes();
+            e.preventDefault();
+            console.log(input)
+            const x = doc(db, "rooms", roomId);
+
+            //add a new message to the "messages" array field.
+            await updateDoc(x, {
+                messages: arrayUnion({
+                //user:{auth.username},
+                message:input,
+                time:time
+            }) })    
+        }
+        
         setInput('')
+
     }
     
     // Using Context api to update the chat title, profile and ****CHAT NEXT****
-    const [context] = useContext(RoomContext)
-    const {roomName,profile,roomId} = context
+
     
 
     return (
