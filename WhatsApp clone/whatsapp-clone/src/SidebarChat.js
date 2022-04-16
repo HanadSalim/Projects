@@ -7,7 +7,7 @@ function SidebarChat({id,name,profile}) {
     // eslint-disable-next-line
     const [context, setContext] = useContext(RoomContext)
     function logIt(){
-        setContext({roomName:name,profile:profile,roomId:id})
+        setContext({roomName:name,profile:profile,roomId:id,history:[]})
     }
     return (
  

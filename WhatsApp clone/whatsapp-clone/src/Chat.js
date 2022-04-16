@@ -4,7 +4,7 @@ import React, { useContext, useState } from 'react'
 import { RoomContext } from './context/roomContext'
 import Message from './Message'
 import db from "./firebase";
-import { doc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
+import { doc, updateDoc, arrayUnion, arrayRemove, getDoc } from "firebase/firestore";
 import "./Chat.css"
 
 function Chat() {
@@ -19,20 +19,28 @@ function Chat() {
 
     // click enter to display message
     const sendMessage = async (e) =>{
-        if(roomId!=""){
+        if(roomId!==""){
             var today = new Date();
             var time = today.getHours() + ":" + today.getMinutes();
             e.preventDefault();
             console.log(input)
-            const x = doc(db, "rooms", roomId);
-
+            const docRef = doc(db, "rooms", roomId);
+            const docSnap = await getDoc(docRef)
             //add a new message to the "messages" array field.
-            await updateDoc(x, {
+            await updateDoc(docRef, {
                 messages: arrayUnion({
                 //user:{auth.username},
                 message:input,
                 time:time
-            }) })    
+            }) })
+
+            if (docSnap.exists()) {
+            console.log("Document data:", docSnap.data().messages);
+            } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+            }
+
         }
         
         setInput('')

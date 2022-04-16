@@ -9,7 +9,7 @@ const RoomProvider = ({ children }) => {
     roomName: "Click a chat",
     profile:"",
     roomId:"",
-    message:""
+    history:[]
   })
  
     return <Provider value={[state, setState]}>{children}</Provider>
