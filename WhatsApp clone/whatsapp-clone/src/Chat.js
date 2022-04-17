@@ -1,6 +1,6 @@
 import {AttachFile, MoreVert, InsertEmoticon, Mic, SearchOutlined} from '@mui/icons-material'
 import {Avatar, IconButton } from '@mui/material'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { RoomContext } from './context/roomContext'
 import Message from './Message'
 import db from "./firebase";
@@ -11,11 +11,13 @@ function Chat() {
     // when you type in the input Field store in state
     const [input,setInput]=useState('')
     const [context, setContext] = useContext(RoomContext)
-    const {roomName,profile,roomId,message} = context 
+    const {roomName,profile,roomId,history,selected} = context 
     // const x = db.collection('rooms').where(firebase.firestore.FieldPath.documentId(), '==', roomId).get()
     // const roomref = doc(db, "rooms", roomId)
-
-    
+    // useEffect(()=>{
+    //      setContext({history:docSnap.data().messages})
+    // })
+        
 
     // click enter to display message
     const sendMessage = async (e) =>{
@@ -35,7 +37,11 @@ function Chat() {
             }) })
 
             if (docSnap.exists()) {
-            console.log("Document data:", docSnap.data().messages);
+                let x = docSnap.data().messages
+                x.forEach(element => {
+                        console.log(element.message)
+                });
+            // console.log("Document data:", docSnap.data().messages);
             } else {
             // doc.data() will be undefined in this case
             console.log("No such document!");
@@ -71,7 +77,9 @@ function Chat() {
                 </div>
             </div>  
                 <div className="chat__body">
-                    <Message />   
+                    {/* once selected map through array and display messages */}
+                    {selected?<p></p>:(history.map(element=><Message  />))}  
+                     
                 </div>
                 <div className="chat__footer">
                     <div className='left'>
