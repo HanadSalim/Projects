@@ -12,14 +12,19 @@ function Chat() {
     const [input,setInput]=useState('')
     const [context, setContext] = useContext(RoomContext)
     const {roomName,profile,roomId,history,selected} = context 
-    // const x = db.collection('rooms').where(firebase.firestore.FieldPath.documentId(), '==', roomId).get()
-    // const roomref = doc(db, "rooms", roomId)
-    // useEffect(()=>{
-    //      setContext({history:docSnap.data().messages})
-    // })
-        
+    // const [chat, setChat]=useState([])
 
+    // useEffect(
+    //     () => {
+    //         const docRef = doc(db, "rooms", roomId);
+    //         const docSnap =  getDoc(docRef)
+    //         setContext({roomName:roomName,profile:profile,roomId:roomId,history:docSnap.data().messages})
+    //     }
+        
+    //     , [selected]);
+    
     // click enter to display message
+    
     const sendMessage = async (e) =>{
         if(roomId!==""){
             var today = new Date();
@@ -35,18 +40,8 @@ function Chat() {
                 message:input,
                 time:time
             }) })
-
-            if (docSnap.exists()) {
-                let x = docSnap.data().messages
-                x.forEach(element => {
-                        console.log(element.message)
-                });
-            // console.log("Document data:", docSnap.data().messages);
-            } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-            }
-
+        // setContext({roomName:roomName,profile:profile,roomId:roomId,history:docSnap.data().messages})
+            
         }
         
         setInput('')
@@ -78,7 +73,7 @@ function Chat() {
             </div>  
                 <div className="chat__body">
                     {/* once selected map through array and display messages */}
-                    {selected?<p></p>:(history.map(element=><Message  />))}  
+                    {history.map(element=><Message time={element.time} message={element.message}  />)}  
                      
                 </div>
                 <div className="chat__footer">

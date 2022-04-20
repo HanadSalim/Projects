@@ -39,6 +39,7 @@ svg > .profile__pic{
   padding: 30px;
   background-image: url("./images/background.png");
   background-repeat: repeat;
+  overflow-y: auto;
 }
 
 .chat__message {
@@ -55,6 +56,10 @@ svg > .profile__pic{
 .chat__text{
   word-wrap: break-word;
   max-width: 250px;
+  min-width: 70px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+
 }
 
 .chat__sender {

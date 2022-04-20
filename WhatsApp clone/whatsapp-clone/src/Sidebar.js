@@ -19,7 +19,7 @@ useEffect(
     )
     , []);
 
-    function getInputValue(event){
+function getInputValue(event){
     setchat(event.target.value)
 }
 
@@ -67,7 +67,7 @@ const createChat = (event) => {
                 
           <div className="sidebar__chats">
               {room.map(room=> (
-                  <SidebarChat key={room.id} id={room.id} name={room.name} profile={room.profile}/>
+                  <SidebarChat key={room.id} id={room.id} name={room.name} profile={room.profile} messages={room.messages}/>
                   ))}
           </div>
             </div>

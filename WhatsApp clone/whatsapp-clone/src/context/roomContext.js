@@ -10,7 +10,7 @@ const RoomProvider = ({ children }) => {
     profile:"",
     roomId:"",
     history:[],
-    selected:true
+    selected:false
   })
  
     return <Provider value={[state, setState]}>{children}</Provider>

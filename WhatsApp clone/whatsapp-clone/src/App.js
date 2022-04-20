@@ -12,6 +12,7 @@ function App() {
       <div className="app__body">
          <RoomProvider>
           <Sidebar />
+          
           <Chat />
         </RoomProvider>
       </div>

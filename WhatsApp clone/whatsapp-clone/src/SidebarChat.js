@@ -3,11 +3,11 @@ import React, { useContext } from 'react'
 import './SidebarChat.css'
 import { RoomContext } from './context/roomContext'
  
-function SidebarChat({id,name,profile}) {
+function SidebarChat({id,name,profile,messages}) {
     // eslint-disable-next-line
     const [context, setContext] = useContext(RoomContext)
     function logIt(){
-        setContext({roomName:name,profile:profile,roomId:id,history:[1,2,2]})
+        setContext({roomName:name,profile:profile,roomId:id,history:messages,selected:true})
     }
 
     
