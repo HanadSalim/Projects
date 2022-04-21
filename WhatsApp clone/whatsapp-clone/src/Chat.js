@@ -33,7 +33,6 @@ function Chat() {
             var today = new Date();
             var time = today.getHours() + ":" + today.getMinutes();
             e.preventDefault();
-            console.log(input)
             const docRef = doc(db, "rooms", roomId);
             //add a new message to the "messages" array field.
             await updateDoc(docRef, {
