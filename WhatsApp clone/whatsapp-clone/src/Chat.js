@@ -68,7 +68,6 @@ function Chat() {
                 </div>
             </div>  
                 <div className="chat__body">
-                    {/* once selected map through array and display messages */}
                     {history.map(element=><Message time={element.time} message={element.message}  />)}  
                      
                 </div>
