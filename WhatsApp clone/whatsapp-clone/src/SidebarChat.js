@@ -2,12 +2,27 @@ import { Avatar } from '@mui/material'
 import React, { useContext } from 'react'
 import './SidebarChat.css'
 import { RoomContext } from './context/roomContext'
+import { doc,getDoc} from "firebase/firestore";
+import db from "./firebase";
  
-function SidebarChat({id,name,profile,messages}) {
+function SidebarChat({id,name,profile}) {
     // eslint-disable-next-line
     const [context, setContext] = useContext(RoomContext)
     function logIt(){
-        setContext({roomName:name,profile:profile,roomId:id,history:messages,selected:true})
+        const fetchData = async() => {
+            try {
+                const docRef = doc(db, "rooms", id);
+                const response = await getDoc(docRef)
+                if (response.exists) {
+                    setContext({roomName:name,profile:profile,roomId:id,history:response.data().messages,selected:true}) 
+                }
+            } catch(err) {
+                console.error(err);
+            }
+
+        }
+        fetchData();
+
     }
 
     

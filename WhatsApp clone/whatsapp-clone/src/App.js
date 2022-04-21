@@ -1,8 +1,8 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-import Chat from "./Chat";
 import "./App.css";
 import RoomProvider from "./context/roomContext";
+import Welcome from "./Welcome";
 
 
 function App() {
@@ -12,8 +12,7 @@ function App() {
       <div className="app__body">
          <RoomProvider>
           <Sidebar />
-          
-          <Chat />
+          <Welcome />
         </RoomProvider>
       </div>
     </div>

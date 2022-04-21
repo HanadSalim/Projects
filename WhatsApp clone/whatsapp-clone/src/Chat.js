@@ -4,24 +4,27 @@ import React, { useContext, useEffect, useState } from 'react'
 import { RoomContext } from './context/roomContext'
 import Message from './Message'
 import db from "./firebase";
-import { doc, updateDoc, arrayUnion, arrayRemove, getDoc } from "firebase/firestore";
+import { doc, updateDoc, arrayUnion, onSnapshot } from "firebase/firestore";
 import "./Chat.css"
 
 function Chat() {
     // when you type in the input Field store in state
     const [input,setInput]=useState('')
+    // ContextApi
     const [context, setContext] = useContext(RoomContext)
-    const {roomName,profile,roomId,history,selected} = context 
-    // const [chat, setChat]=useState([])
-
-    // useEffect(
-    //     () => {
-    //         const docRef = doc(db, "rooms", roomId);
-    //         const docSnap =  getDoc(docRef)
-    //         setContext({roomName:roomName,profile:profile,roomId:roomId,history:docSnap.data().messages})
-    //     }
+    const {roomName,profile,roomId,history} = context 
+    //Once loaded and on change do the following
+    useEffect(() => {
+        let isMounted = true  
+        if (isMounted) onSnapshot(doc(db,"rooms",roomId),(doc)=>{
+            console.log(doc.data().messages)
+            setContext({roomName:roomName,profile:profile,roomId:roomId,history:doc.data().messages,selected:true})
+            return () =>{isMounted=false}
+        })
         
-    //     , [selected]);
+        
+
+    }, [roomId]);
     
     // click enter to display message
     
@@ -32,7 +35,6 @@ function Chat() {
             e.preventDefault();
             console.log(input)
             const docRef = doc(db, "rooms", roomId);
-            const docSnap = await getDoc(docRef)
             //add a new message to the "messages" array field.
             await updateDoc(docRef, {
                 messages: arrayUnion({
@@ -40,18 +42,12 @@ function Chat() {
                 message:input,
                 time:time
             }) })
-        // setContext({roomName:roomName,profile:profile,roomId:roomId,history:docSnap.data().messages})
             
         }
-        
         setInput('')
-
     }
     
     // Using Context api to update the chat title, profile and ****CHAT NEXT****
-
-    
-
     return (
         <div className="chat">
             <div className="chat__header">
