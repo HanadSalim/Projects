@@ -3,7 +3,7 @@ import {Avatar, IconButton } from '@mui/material';
 import SidebarChat from './SidebarChat';
 import { AvatarGenerator } from 'random-avatar-generator';
 import './Sidebar.css';
-import db from "./firebase";
+import db, { signInWithgoogle } from "./firebase";
 import {onSnapshot, collection, addDoc} from "firebase/firestore";
 import { DonutLargeOutlined, MoreVertOutlined, SearchOutlined, Chat } from '@mui/icons-material';
 
@@ -39,7 +39,7 @@ const createChat = (event) => {
     return (
         <div className="sidebar">
             <div className="sidebar__header"> 
-                <Avatar />
+                <Avatar onClick={signInWithgoogle}/>
                 <div className="sidebar__headerRight">
                 <IconButton>
                         <DonutLargeOutlined />
