@@ -2,7 +2,7 @@
 
 1. Created UI, Material Icons, Random generator avatar
 2. Firebase connected
-3. Add to firebsae (new chats)
+3. Add to firebase (new chats)
 4. Used useState, couldn't find a way to share between components
 5. ContextApi (global states)
 6. useEffect to do something on & after component is rendered
