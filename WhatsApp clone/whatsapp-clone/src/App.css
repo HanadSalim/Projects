@@ -1,5 +1,7 @@
 .app {
-  background-color: rgb(231,228,223);
+  background: rgb(209,215,219);
+  background: linear-gradient(0deg, rgba(209,215,219,1) 0%, rgba(231,228,223,1) 88%, rgba(241,239,237,1) 100%);
+  width: 100vw;
   height: 100vh;
   display: grid;
   place-content: center;
@@ -7,29 +9,29 @@
 
 .app__body {
   display: flex;
-  width: 1396px;
-  height: 1252px;
+  width: 100vw;
+  height: 100vh;
   background-color: #ededed;
-  box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2);
+  /* box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2); */
   z-index: 99999;
 }
 
-@media only screen and (min-width: 1920px) {
+/* @media only screen and (min-width: 1920px) {
   .app__body{
     max-width: 1500px;
   }
-}
+} */
 
-@media only screen and (max-width: 1440px) {
+@media only screen and (min-width: 1396px) {
   .app__body{
-    height: 100vh;
-    width: 100vw;
+    height: 96vh;
+    width: 1396px;
   }
 }
 
 .bar{
   position: absolute;
   width:100vw;
-  height: 128px;
+  height: 127px;
   background: rgb(0,168,132)
 }

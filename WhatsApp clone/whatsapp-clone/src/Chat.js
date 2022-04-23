@@ -21,9 +21,6 @@ function Chat() {
             setContext({roomName:roomName,profile:profile,roomId:roomId,history:doc.data().messages,selected:true})
             return () =>{isMounted=false}
         })
-        
-        
-
     }, [roomId]);
     
     // click enter to display message
@@ -51,12 +48,10 @@ function Chat() {
         <div className="chat">
             <div className="chat__header">
                 <Avatar src={profile} className="profile__pic"/>
-               
                 <div className="chat__headerInfo">
                     <h4>{roomName}</h4>
                     <p>{roomId}</p>
                 </div>
-                
                 <div className="chat__headerRight">
                     <IconButton>
                         <SearchOutlined />
