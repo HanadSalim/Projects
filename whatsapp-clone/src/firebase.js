@@ -1,6 +1,5 @@
 import {initializeApp} from "firebase/app";
 import { getFirestore } from "@firebase/firestore";
-import {getAuth,GoogleAuthProvider,signInWithPopup} from "firebase/auth"
 
 
 const firebaseConfig = {
@@ -15,14 +14,7 @@ const firebaseConfig = {
 //  initialise firebase
 initializeApp(firebaseConfig)
 
+
 export default getFirestore()
 
-export const auth = getAuth() 
 
-const provider = new GoogleAuthProvider()
-
-export const signInWithgoogle = () => {
-  signInWithPopup(auth,provider).then((result)=>{
-    console.log(result)
-  }).catch((error)=>console.log(error))
-}

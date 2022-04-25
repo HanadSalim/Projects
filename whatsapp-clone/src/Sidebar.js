@@ -39,7 +39,7 @@ const createChat = (event) => {
     return (
         <div className="sidebar">
             <div className="sidebar__header"> 
-                <Avatar onClick={signInWithgoogle}/>
+                <Avatar />
                 <div className="sidebar__headerRight">
                 <IconButton>
                         <DonutLargeOutlined />

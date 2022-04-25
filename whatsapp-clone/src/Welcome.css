@@ -102,3 +102,8 @@
     padding-top: 130px;
 }
 
+.foot > .logo{
+    background-image: url(./images/lock.png);
+    margin-top: -2px;
+}
+

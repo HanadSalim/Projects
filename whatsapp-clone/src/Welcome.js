@@ -25,7 +25,7 @@ function Welcome(){
                         <div className='logo'></div>Make calls from desktop with WhatsApp for Windows.<a href='https://www.whatsapp.com/download' target="_blank" rel="noreferrer">Get it here</a>
                     </div>
                 </div>
-               <div className='foot text'><div className='logo'></div>End-to-end encrypted</div> 
+               <div className='foot text'><div className='logo'></div>End-to-end encrypted</div>  
             </div>
             
         </div>

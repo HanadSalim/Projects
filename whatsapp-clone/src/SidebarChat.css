@@ -1,17 +1,24 @@
 .sidebarChat {
+  position: relative;
   display: flex;
   align-items: center;
   padding: 10px;
-  /* border-bottom: 1px solid #c50000; */
   background-color: rgb(256, 256, 256);
+  box-sizing: border-box;
 }
  
-.border {
-  height: 1px;
-  width: 245px;
+.sidebarChat::after {
+  content: "";
   position: absolute;
-  background-color: rgb(240,242,245);
-  margin-top: 13px;
+  height: 1px;
+  width: calc(100% - 70px);
+  background-color: rgb(240,242,245); 
+  right: 0;
+  bottom: 0;
+  /* position: relative;
+  height: 1px;
+  width: 100%;
+  background-color: rgb(240,242,245); */
   
 }
 
