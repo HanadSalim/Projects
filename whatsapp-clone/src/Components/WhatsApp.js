@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-import "./App.css";
-import RoomProvider from "./context/roomContext";
+import "../CSS/App.css";
+import RoomProvider from "../context/roomContext";
 import Welcome from "./Welcome";
 
 

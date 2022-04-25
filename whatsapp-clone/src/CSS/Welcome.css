@@ -31,7 +31,7 @@
 }
 
 .image{
-    background-image: url(./images/latop_mobile.png);
+    background-image: url(../images/latop_mobile.png);
     background-repeat: no-repeat;
     background-size: contain;
     width: 360px;
@@ -80,7 +80,7 @@
 }
 
 .logo{
-    background-image: url(./images/icon.png);
+    background-image: url(../images/icon.png);
     background-repeat: no-repeat;
     background-size: contain;
     width: 20px;
@@ -103,7 +103,7 @@
 }
 
 .foot > .logo{
-    background-image: url(./images/lock.png);
+    background-image: url(../images/lock.png);
     margin-top: -2px;
 }
 

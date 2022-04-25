@@ -1,7 +1,7 @@
 import React from 'react'
 import {getAuth,GoogleAuthProvider,signInWithPopup} from "firebase/auth"
 import { useNavigate } from 'react-router'
-import './SignIn.css'
+import '../CSS/SignIn.css'
 
 const SignIn = () =>{
     const navigate = useNavigate()

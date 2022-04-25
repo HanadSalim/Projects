@@ -1,8 +1,8 @@
 import React from "react";
-import "./App.css";
-import SignIn from "./SignIn"
+import "./CSS/App.css";
+import SignIn from "./Components/SignIn"
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import WhatsApp from "./WhatsApp";
+import WhatsApp from "./Components/WhatsApp";
 function App() {
   return (
     <Router>

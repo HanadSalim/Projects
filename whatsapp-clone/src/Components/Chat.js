@@ -1,11 +1,11 @@
 import {AttachFile, MoreVert, InsertEmoticon, Mic, SearchOutlined} from '@mui/icons-material'
 import {Avatar, IconButton } from '@mui/material'
 import React, { useContext, useEffect, useState } from 'react'
-import { RoomContext } from './context/roomContext'
-import Message from './Message'
-import db from "./firebase";
+import { RoomContext } from '../context/roomContext'
+import Message from '../Components/Message'
+import db from "../firebase";
 import { doc, updateDoc, arrayUnion, onSnapshot } from "firebase/firestore";
-import "./Chat.css"
+import "../CSS/Chat.css"
 
 function Chat() {
     // when you type in the input Field store in state

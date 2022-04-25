@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import {Avatar, IconButton } from '@mui/material';
-import SidebarChat from './SidebarChat';
+import SidebarChat from '../Components/SidebarChat';
 import { AvatarGenerator } from 'random-avatar-generator';
-import './Sidebar.css';
-import db, { signInWithgoogle } from "./firebase";
+import '../CSS/Sidebar.css';
+import db from "../firebase";
 import {onSnapshot, collection, addDoc} from "firebase/firestore";
 import { DonutLargeOutlined, MoreVertOutlined, SearchOutlined, Chat } from '@mui/icons-material';
 

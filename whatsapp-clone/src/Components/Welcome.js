@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-import Chat from './Chat'
-import { RoomContext } from './context/roomContext'
-import './Welcome.css'
+import Chat from '../Components/Chat'
+import { RoomContext } from '../context/roomContext'
+import '../CSS/Welcome.css'
 function Welcome(){
     const [context, setContext] = useContext(RoomContext)
     const {selected} = context 

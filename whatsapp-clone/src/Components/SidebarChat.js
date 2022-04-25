@@ -1,9 +1,9 @@
 import { Avatar } from '@mui/material'
 import React, { useContext } from 'react'
-import './SidebarChat.css'
-import { RoomContext } from './context/roomContext'
+import '../CSS/SidebarChat.css'
+import { RoomContext } from '../context/roomContext'
 import { doc,getDoc} from "firebase/firestore";
-import db from "./firebase";
+import db from "../firebase";
  
 function SidebarChat({id,name,profile}) {
     // eslint-disable-next-line
