@@ -1,17 +1,23 @@
 import React from 'react'
-import {getAuth,GoogleAuthProvider,signInWithPopup} from "firebase/auth"
+import {signInWithPopup} from "firebase/auth"
 import { useNavigate } from 'react-router'
 import '../CSS/SignIn.css'
+import { auth, provider, registerWithEmailAndPassword } from '../firebase'
 
 const SignIn = () =>{
     const navigate = useNavigate()
-    const auth = getAuth() 
-    const provider = new GoogleAuthProvider()
     const signInWithgoogle = () => {
         signInWithPopup(auth,provider).then((result)=>{
             console.log(result)
             navigate('/app')
         }).catch((error)=>console.log(error))
+    }
+    function registerUser(e){
+        e.preventDefault();
+        let cName = document.getElementById("cn").value;
+        let cEmail = document.getElementById("ce").value;
+        let cPass = document.getElementById("cp").value;
+        registerWithEmailAndPassword(cName,cEmail,cPass)
     }
     function signUp(){
         document.getElementById('container').classList.add("right-panel-active");
@@ -19,16 +25,17 @@ const SignIn = () =>{
     function signIn(){
         document.getElementById('container').classList.remove("right-panel-active");
     }
+
     return(
     <div className='body'>
         <div className="container" id="container">
         <div className="form-container sign-up-container">
-            <form action="#">
+            <form >
                 <h1>Create Account</h1>
-                <input type="text" placeholder="Name" />
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <button>Sign Up</button>
+                <input id="cn" type="text" placeholder="Name" />
+                <input id="ce" type="email" placeholder="Email" />
+                <input id="cp" type="password" placeholder="Password" />
+                <button onClick={registerUser}>Sign Up</button>
             </form>
         </div>
         <div className="form-container sign-in-container">

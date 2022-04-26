@@ -34,6 +34,7 @@
 	font-size: 14px;
 	text-decoration: none;
 	margin: 15px 0;
+	cursor: pointer;
 }
 
 .form-container>form>button,.overlay-panel>button {
@@ -47,6 +48,7 @@
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
+	cursor: pointer;
 }
 
 .form-container>form>button:active,.overlay-panel>button:active {
