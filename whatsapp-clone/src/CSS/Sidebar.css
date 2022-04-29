@@ -2,6 +2,7 @@
   flex: 0.3;
   /* overflow: overlay; */
   background-color: white;
+  position: relative;
 }
 
 .sidebar__header {
@@ -65,5 +66,22 @@ path {
 /* Doesn't allow the chats to exceed the app size */
 .sidebar__chats__wrap{
   overflow-y: auto;
-  height: 706px;
+}
+
+.logout-button{
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 15px;
+  left: calc(50% - 75px);
+  justify-content: center;
+  border-radius: 20px;
+	border: 1px solid #25d366;
+	background-color: #25d366;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	cursor: pointer;
 }

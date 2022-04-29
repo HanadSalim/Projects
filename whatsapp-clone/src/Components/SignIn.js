@@ -1,23 +1,59 @@
-import React from 'react'
-import {signInWithPopup} from "firebase/auth"
+import React, { useContext } from 'react'
+import {onAuthStateChanged, updateProfile} from "firebase/auth"
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { useNavigate } from 'react-router'
 import '../CSS/SignIn.css'
-import { auth, provider, registerWithEmailAndPassword } from '../firebase'
+import { db,auth, registerWithEmailAndPassword, logInWithEmailAndPassword, signInWithgoogle } from '../firebase'
+import { UserContext } from '../context/userContext'
 
 const SignIn = () =>{
+    const [context, setContext] = useContext(UserContext)
     const navigate = useNavigate()
-    const signInWithgoogle = () => {
-        signInWithPopup(auth,provider).then((result)=>{
-            console.log(result)
-            navigate('/app')
-        }).catch((error)=>console.log(error))
+     onAuthStateChanged(auth, (user) => {
+        if (user) {
+            if(user.displayName===null){
+                update(user)
+            }else{
+                setContext({
+                    uId:user.uid,
+                    uProfile:user.photoURL,
+                    uDisplayName:user.displayName
+                })
+                navigate('/app')
+            }  
+        } 
+    });
+
+    async function update(user){
+        const q = query(collection(db,'users'), where("uid","==",user.uid))
+        const docs = await getDocs(q)
+        docs.forEach((doc)=>{
+            updateProfile(user,{
+            displayName:doc.data().name, photoURL:doc.data().photoUrl
+            }).then(()=>{
+                    console.log('updated successfully')
+                    setContext({
+                        uId:user.uid,
+                        uProfile:user.photoURL,
+                        uDisplayName:user.displayName
+                    })
+                    navigate('/app')
+                }).catch((error)=>{console.log(error)})
+        })
     }
-    function registerUser(e){
+
+    async function registerUser(e){
         e.preventDefault();
         let cName = document.getElementById("cn").value;
         let cEmail = document.getElementById("ce").value;
         let cPass = document.getElementById("cp").value;
         registerWithEmailAndPassword(cName,cEmail,cPass)
+    }
+    function logIn(e){
+        e.preventDefault()
+        let sEmail = document.getElementById("se").value;
+        let sPass = document.getElementById("sp").value;
+        logInWithEmailAndPassword(sEmail,sPass)
     }
     function signUp(){
         document.getElementById('container').classList.add("right-panel-active");
@@ -45,10 +81,10 @@ const SignIn = () =>{
                     <a><i className="fab fa-google-plus-g" onClick={signInWithgoogle}></i></a>
                 </div>
                 <span>or use your account</span>
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <a href="#">Forgot your password?</a>
-                <button>Sign In</button>
+                <input type="email" placeholder="Email" id='se' />
+                <input type="password" placeholder="Password" id='sp' />
+                <a href="">Forgot your password?</a>
+                <button onClick={logIn}>Sign In</button>
             </form>
         </div>
         <div className="overlay-container">

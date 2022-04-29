@@ -1,10 +1,7 @@
 import {initializeApp} from "firebase/app";
 import {  
   getFirestore,
-   query, 
-   getDocs, 
    collection, 
-   where, 
    addDoc, } from "@firebase/firestore";
 import {
   GoogleAuthProvider,
@@ -15,6 +12,7 @@ import {
   sendPasswordResetEmail,
   signOut,
 } from "firebase/auth";
+import { AvatarGenerator } from "random-avatar-generator";
 
 
 const firebaseConfig = {
@@ -32,24 +30,32 @@ const auth = getAuth(app)
 const db = getFirestore(app)
 const provider = new GoogleAuthProvider()
 
-// const logInWithEmailAndPassword = async (email, password) => {
-//   try {
-//     await signInWithEmailAndPassword(auth, email, password);
-//   } catch (err) {
-//     console.error(err);
-//     alert(err.message);
-//   }
-// }
+const logInWithEmailAndPassword = async (email, password) => {
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+}
+
+const signInWithgoogle = () => {
+  signInWithPopup(auth,provider).then((result)=>{
+      console.log(result)
+  }).catch((error)=>console.log(error))
+}
 
 const registerWithEmailAndPassword = async (name, email, password) => {
   try {
     const res = await createUserWithEmailAndPassword(auth, email, password);
     const user = res.user;
+    const url = new AvatarGenerator().generateRandomAvatar()
     await addDoc(collection(db, "users"), {
       uid: user.uid,
       name,
       authProvider: "local",
       email,
+      photoUrl:url
     })
     alert("Account successfully created")
   } catch (err) {
@@ -68,18 +74,19 @@ const registerWithEmailAndPassword = async (name, email, password) => {
 //   }
 // }
 
-// const logout = () => {
-//   signOut(auth);
-// }
+const logout = () => {
+  signOut(auth);
+}
 
 export {
   auth,
   db,
   provider,
-  // logInWithEmailAndPassword,
+  logInWithEmailAndPassword,
   registerWithEmailAndPassword,
+  signInWithgoogle,
   // sendPasswordReset,
-  // logout
+  logout
 }
 
 export default db
