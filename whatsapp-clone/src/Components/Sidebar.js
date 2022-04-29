@@ -44,6 +44,7 @@ function Sidebar() {
         logout()
         onAuthStateChanged(auth, (user) => {
             if (!user) {
+                setContext({uId:"",uProfile:"",uDisplayName:""})
                 navigate('/')
             } 
         })
@@ -84,7 +85,6 @@ function Sidebar() {
                   ))}
           </div>
             </div>
-            <p>displayname:{uDisplayName} and id:{uId}</p>
             <button className='logout-button' onClick={signOut}>logout</button>
         </div>
     )

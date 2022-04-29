@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import {UserContext} from '../context/userContext';
+function Message({currentUser,user,message,time}){
 
-function Message({message,time}){
-    return(<div className={!false?"chat__message": "chat__message chat__sender"}>
-    <span className="chat__name">Hanad </span>
-    <p className='chat__text'>{message}</p>
-<span className="chat__time">{time}</span>
-</div>)
+    return(currentUser==user.id?
+   
+    <div className="chat__message chat__sender right">
+        <p className='chat__text'>{message}</p>
+        <p className="chat__time">{time}</p>
+    </div> :<div className="chat__message left">
+        <p className="chat__name">{user.name}</p>
+        <p className='chat__text'>{message}</p>
+        <p className="chat__time">{time}</p></div>
+)
 }
 
 export default Message

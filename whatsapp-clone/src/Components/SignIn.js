@@ -11,6 +11,7 @@ const SignIn = () =>{
     const navigate = useNavigate()
      onAuthStateChanged(auth, (user) => {
         if (user) {
+            user.reload()
             if(user.displayName===null){
                 update(user)
             }else{

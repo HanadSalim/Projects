@@ -2,6 +2,7 @@ import {AttachFile, MoreVert, InsertEmoticon, Mic, SearchOutlined} from '@mui/ic
 import {Avatar, IconButton } from '@mui/material'
 import React, { useContext, useEffect, useState } from 'react'
 import { RoomContext } from '../context/roomContext'
+import { UserContext } from '../context/userContext'
 import Message from '../Components/Message'
 import db from "../firebase";
 import { doc, updateDoc, arrayUnion, onSnapshot } from "firebase/firestore";
@@ -13,6 +14,8 @@ function Chat() {
     // ContextApi
     const [context, setContext] = useContext(RoomContext)
     const {roomName,profile,roomId,history} = context 
+    const [con, setCon] = useContext(UserContext)
+    const {uId,uDisplayName} = con
     //Once loaded and on change do the following
     useEffect(() => {
         let isMounted = true  
@@ -26,6 +29,7 @@ function Chat() {
     // click enter to display message
     
     const sendMessage = async (e) =>{
+        
         if(roomId!==""){
             var today = new Date();
             var time = today.getHours() + ":" + today.getMinutes();
@@ -34,7 +38,9 @@ function Chat() {
             //add a new message to the "messages" array field.
             await updateDoc(docRef, {
                 messages: arrayUnion({
-                //user:{auth.username},
+                user:{
+                    id:uId,
+                    name:uDisplayName},
                 message:input,
                 time:time
             }) })
@@ -62,7 +68,7 @@ function Chat() {
                 </div>
             </div>  
                 <div className="chat__body">
-                    {history.map(element=><Message time={element.time} message={element.message}  />)}  
+                    {history.map(element=><Message key={element.id} time={element.time} message={element.message} user={element.user} currentUser={uId}  />)}  
                      
                 </div>
                 <div className="chat__footer">
